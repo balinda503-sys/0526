@@ -12,15 +12,15 @@ st.write("---")
 # 2. 呼叫 st.columns(3)，在網頁橫向切出三個一模一樣寬度的大直欄變數
 col1, col2, col3 = st.columns(3)
 
-# 3. 運用 with 語法，像填空一樣把文字塞進對應的直欄空間裡
+# 用 with 語法將內容塞進對應的直欄
 with col1:
-    st.markdown("### To Do (待辦)")
-    st.write("這裡未來要放『待辦事項』的卡片")
+    st.markdown("### 🔴 To Do")
+    st.write("待辦事項")
 
 with col2:
-    st.markdown("### In Progress (執行中)")
-    st.write("這裡未來要放『執行中』的卡片")
+    st.markdown("### 🟡 In Progress")
+    st.write("執行中")
 
 with col3:
-    st.markdown("### Done (已完成)")
-    st.write("這裡未來要放『已完成』的卡片")
+    st.markdown("### 🟢 Done")
+    st.write("已完成")
