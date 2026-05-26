@@ -29,6 +29,40 @@ target_profit_rate = (
     / 100
 )
 
+# 注入自訂 CSS 來縮小左側側邊欄的元件與字體
+st.markdown(
+    """
+    <style>
+    /* 1. 縮小側邊欄整體的寬度 (預設約 21rem，可自行調整成 16rem 或更小) */
+    [data-testid="stSidebar"] {
+        width: 16rem !important;
+        min-width: 16rem !important;
+    }
+    
+    /* 2. 縮小側邊欄內部的標題字體 (## 或 ###) */
+    [data-testid="stSidebar"] h2 {
+        font-size: 1.2rem !important;
+    }
+    [data-testid="stSidebar"] h3 {
+        font-size: 1.0rem !important;
+    }
+    
+    /* 3. 縮小輸入框上面的標籤文字 (Label) */
+    [data-testid="stSidebar"] label p {
+        font-size: 0.85rem !important;
+    }
+    
+    /* 4. 縮小輸入框本身的間距與高度 */
+    [data-testid="stSidebar"] .stNumberInput div[data-baseweb="input"] {
+        padding: 2px 4px !important;
+    }
+    [data-testid="stSidebar"] .stTextInput div[data-baseweb="input"] {
+        padding: 2px 4px !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 st.sidebar.markdown("---")
 st.sidebar.subheader("➕ 新增商品品項")
 
