@@ -68,19 +68,21 @@ with st.sidebar.form(key="add_product_form", clear_on_submit=True):
 
     submit_button = st.form_submit_button("新增到清單")
 
-    if submit_button:
-        if new_name and new_url:
-            st.session_state.product_list.append(
-                {
-                    "品項名稱": new_name,
-                    "商品網址": new_url,
+   if submit_button:
+            # 確保欄位都有填寫（去除前後空白）
+            if new_name.strip() and new_url.strip():
+                st.session_state.product_list.append({
+                    "品項名稱": new_name.strip(),
+                    "商品網址": new_url.strip(),
                     "人民幣進價": new_rmb,
                     "進貨數量": new_qty,
-                }
-            )
-            st.toast(f"✅ 已成功新增：{new_name}")
-        else:
-            st.error("❌ 請填寫商品名稱與網址！")
+                })
+                st.toast(f"✅ 已成功新增：{new_name}")
+                
+                # ✨ 關鍵：加入這行，強制讓 Streamlit 重新整理畫面，右邊表格就會立刻顯示！
+                st.rerun() 
+            else:
+                st.error("❌ 請填寫商品名稱與網址！")
 
 
 # --- 主畫面：資料處理與表格顯示 ---
