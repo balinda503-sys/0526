@@ -60,15 +60,15 @@ if "product_list" not in st.session_state:
     ]
 
 # 新增商品的輸入欄位（這次不需要手動猜賣價了，系統會自動幫你算）
-with st.sidebar.form(key="add_product_form", clear_on_submit=True):
-    new_name = st.text_input("商品品項名稱", placeholder="例如：日系復古襯衫")
-    new_url = st.text_input("商品網址", placeholder="請貼上淘寶/批發網址")
-    new_rmb = st.number_input("人民幣進價 (￥)", min_value=0.0, step=0.1)
-    new_qty = st.number_input("進貨數量", min_value=1, step=1, value=1)
+    with st.sidebar.form(key="add_product_form", clear_on_submit=True):
+        new_name = st.text_input("商品品項名稱", placeholder="例如：日系復古襯衫")
+        new_url = st.text_input("商品網址", placeholder="請貼上淘寶/批發網址")
+        new_rmb = st.number_input("人民幣進價 (￥)", min_value=0.0, step=0.1)
+        new_qty = st.number_input("進貨數量", min_value=1, step=1, value=1)
+        submit_button = st.form_submit_button("新增到清單")
 
-    submit_button = st.form_submit_button("新增到清單")
-
-   if submit_button:
+        # 👇 注意：下面這一整段 if 區塊，前方都必須比 with 多 4 個空格
+        if submit_button:
             # 確保欄位都有填寫（去除前後空白）
             if new_name.strip() and new_url.strip():
                 st.session_state.product_list.append({
@@ -78,8 +78,7 @@ with st.sidebar.form(key="add_product_form", clear_on_submit=True):
                     "進貨數量": new_qty,
                 })
                 st.toast(f"✅ 已成功新增：{new_name}")
-                
-                # ✨ 關鍵：加入這行，強制讓 Streamlit 重新整理畫面，右邊表格就會立刻顯示！
+                # 強制讓 Streamlit 重新整理畫面
                 st.rerun() 
             else:
                 st.error("❌ 請填寫商品名稱與網址！")
