@@ -98,12 +98,3 @@ if st.session_state.product_list:
     # 顯示上方的總統計數據看板
     total_twd_cost = df["台幣進貨總額"].sum()
     total_profit = df["預估利潤總額"].sum()
-
-with col1:
-    st.markdown("### 商品品項名稱")
-
-with col2:
-    st.markdown("### 商品網址")
-
-with col3:
-    st.markdown("### 人民幣進價 (￥)")
