@@ -40,7 +40,7 @@ with st.sidebar.form(key="add_product_form", clear_on_submit=True):
     new_rmb = st.number_input("人民幣進價 (￥)", min_value=0.0, step=0.1)
     new_qty = st.number_input("進貨數量", min_value=1, step=1, value=1)
 
-    submit_button = st.form_submit_with_ui_button("新增到清單")
+    submit_button = st.form_submit_button("新增到清單")
 
     if submit_button:
         if new_name and new_url:
