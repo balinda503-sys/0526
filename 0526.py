@@ -31,7 +31,7 @@ st.title(" 階段三：外星文濾網分流與空間歸隊測試")
 
 st.caption("授權標註：edit by 闕河正")
 
-conn = st.connection("gsheets", type=GSheetsConnection) 
+conn = st.connection("gsheets", type="gsheets")
 
 df = conn.read(worksheet="Tasks", ttl="0")
 
