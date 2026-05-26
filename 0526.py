@@ -100,7 +100,7 @@ if st.session_state.product_list:
     total_profit = df["預估利潤總額"].sum()
 
     col1, col2, col3 = st.columns(3)
-  col3.metric(
+col3.metric(
         label=f"💰 若依建議價完售（目標利潤 {target_profit_rate*100:.0f}%）",
         value=f"NT$ {total_profit:,.0f}",
         delta="預估總利潤",
