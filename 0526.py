@@ -1,42 +1,26 @@
 import streamlit as st
 
-# 1. 關鍵概念：設定網頁為寬版模式，把兩邊留白填滿
+# 1. 網頁初始化設定（必須放在程式碼第一行）
+# layout="wide" 會把網頁兩邊的留白填滿，變成寬螢幕，最適合看多欄位的看板
 st.set_page_config(layout="wide")
 
-# 2. 標題與目的說明
-st.title("🧱 簡單規劃版面（認識 Columns 空間切分）")
-st.write("目的：完全不連線雲端，只專注在「如何在網頁上橫向切出三個大直欄」")
+st.title("階段一：Trello 畫布空間規劃測試")
+st.caption("授權標註：edit by 闕河正 | 專屬資淺初學者講義")
 
-st.markdown("---")
+st.write("---")
 
-# 3. 核心武器與關鍵概念說明（使用 Streamlit 的欄位來並排呈現）
-intro_col1, intro_col2 = st.columns([1, 1])
-
-with intro_col1:
-    st.subheader("核心武器")
-    st.code("st.columns(3)", language="python")
-    st.write("像切豆腐一樣，在瀏覽器切出三塊獨立畫布空間")
-
-with intro_col2:
-    st.subheader("關鍵概念")
-    st.markdown("- `layout=\"wide\"` 把網頁兩邊留白填滿，最適合多欄位看板")
-    st.markdown("- 用 `with` 語法像填空一樣把文字塞進對應直欄")
-    st.markdown("- 三欄分別對應 🔴 To Do、🟡 In Progress、🟢 Done")
-
-st.markdown("---")
-
-# 4. 核心實作：切出三欄畫布
+# 2. 呼叫 st.columns(3)，在網頁橫向切出三個一模一樣寬度的大直欄變數
 col1, col2, col3 = st.columns(3)
 
-# 用 with 語法將內容塞進對應的直欄
+# 3. 運用 with 語法，像填空一樣把文字塞進對應的直欄空間裡
 with col1:
-    st.markdown("### 🔴 To Do")
-    st.write("待辦事項")
+    st.markdown("### To Do (待辦)")
+    st.write("這裡未來要放『待辦事項』的卡片")
 
 with col2:
-    st.markdown("### 🟡 In Progress")
-    st.write("執行中")
+    st.markdown("### In Progress (執行中)")
+    st.write("這裡未來要放『執行中』的卡片")
 
 with col3:
-    st.markdown("### 🟢 Done")
-    st.write("已完成")
+    st.markdown("### Done (已完成)")
+    st.write("這裡未來要放『已完成』的卡片")
