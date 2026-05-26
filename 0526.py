@@ -3,7 +3,7 @@ import streamlit as st
 
 # 設定網頁標題與佈局
 st.set_page_config(page_title="網拍進貨與蝦皮利潤定價器", layout="wide")
-st.title("🛍️ 網拍進貨商品與蝦皮 20% 利潤定價系統")
+st.title("🛍️ 網拍進貨商品與蝦皮 10% 利潤定價系統")
 
 # --- 側邊欄：設定目前匯率、手續費、目標利潤與新增商品 ---
 st.sidebar.header("📊 匯率與定價參數設定")
